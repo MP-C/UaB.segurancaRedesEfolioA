@@ -7,7 +7,7 @@
 //                web que reune os diferentes ficheiros segundo critérios de
 //                avaliação do EFólio-A
 // Codigo       : Este código ficará publicamente disponivel no 
-//                repositório GitHub https://github.com/
+//                repositório GitHub https://github.com/MP-C/UaB.segurancaRedesEfolioA.git
 //                após o dia de entrega
 console.log("Check oppening file: main.js");
 //====================================================================
