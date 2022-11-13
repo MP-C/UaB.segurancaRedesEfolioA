@@ -12,13 +12,97 @@
 console.log("Check oppening file: main.js");
 //====================================================================
 
+/* Função responsavel por assegurar uma transformação simétrica da mensagem inicial de forma a eccriptar uma mensagem recorrendo a um algoritmo que codifica a mensagem*/
+function crytTextSync(){
+    let plainText = document.querySelector('#textToCipherSync').value.replace(/(\t|\f|\n|\r|\v)/gm, "");
+    let cipheredText;
+    let codeSymbols = 0;
+    let codeVowals = 0;
+    let codeConsonants = 0;
 
-/* */
-function crytText(textoClaro){
-    let textoCifrado;
-    textoCifrado = base64.encode(textoClaro);
+    /* Para garantir que o utilizador escreve algo como texto a criptar*/
+    if(plainText.length == 0){ 
+        alert("To cipher a text in Synchrone mode, you should type any letter, word, number or caracter.");
+    }
+    else{ /* Se existir mensagem então esta é encriptada com mudança de código decimal de acordo com a tabela ASCII */
+        for (let i = 0; i < plainText.length; i++) {
+            let message = plainText.charCodeAt(i);
+            if(message > 32 && message <= 64){
+                message -= 1 ;
+                codeSymbols += 1
+            }
+            if (message >= 65 && message <= 65 + 26 - 1){
+                message += 2;
+                codeVowals +=1 ;
+            }
+            if (message >= 97 && message <= 97 + 26 - 1) {
+                message += 6;
+                codeConsonants += 1;
+            }
+            if(message == 126){
+                message += 4;
+            }
+            // console.log("codeSymbols", codeSymbols, "codeVowals",codeVowals, "codeConsonants", codeConsonants, "message", message);
+            cipheredText += String.fromCharCode(message);
+        }
+        // cipheredText = result.substring(1, result.length);
+        // console.log("2code65", code65, "2code97", code97, "cipheredText", cipheredText);
+    }        
+    document.getElementById('outputCode').innerHTML =
+    `<p> De acordo com a Tabela ASCII a quantidade de caracteres trasnformados para carateres : </p>
+    <p> especiais por "-1" posição foi de ${ codeSymbols} </p>
+    <p> voagais por "+2" posição foi de ${ codeVowals} </p>
+    <p> consoantespor "+6" posição foi de ${ codeConsonants} </p>`
+    console.log(document.getElementById('output').innerHTML);
+    document.getElementById('output').innerHTML = `<p> ${cipheredText} </p>`;
+    console.log(document.getElementById('output').innerHTML);
 }
 
+/* Função responsavel por assegurar uma transformação simétrica da mensagem inicial de forma a descriptar a mensagem recorrendo ao algoritmo inverso,*/
+function decrytTextSync(){
+    let plainText = document.querySelector('#textToCipherSync').value.replace(/(\t|\f|\n|\r|\v)/gm, "");
+    let cipheredText;
+    let codeSymbols = 0;
+    let codeVowals = 0;
+    let codeConsonants = 0;
+
+    /* Para garantir que o utilizador escreve algo como texto a criptar ou decriptar*/
+    if(plainText.length == 0){ 
+        alert("To cipher a text in Synchrone mode, you should type any letter, word, number or caracter.");
+    }
+    else{ /* Se existir mensagem então esta é encriptada com mudança de código decimal de acordo com a tabela ASCII */
+        for (let i = 0; i < plainText.length; i++) {
+            let message = plainText.charCodeAt(i);
+            if(message > 32 && message <= 63){
+                message += 1 ;
+                codeSymbols += 1;
+            }
+            if (message >= 65+2 && message <= 65 + 26 - 1 +2){
+                message -= 2;
+                codeVowals +=1 ;
+            }
+            if (message >= 97 +6 && message <= 97 + 26 - 1 +6) {
+                message -= 6;
+                codeConsonants += 1;
+            }
+            if(message == 126){
+                message -= 4;
+            }
+            //console.log("codeSymbols", codeSymbols, "codeVowals",codeVowals, "codeConsonants", codeConsonants, "message", message);
+            cipheredText += String.fromCharCode(message);
+        }
+        // cipheredText = result.substring(1, result.length);
+        // console.log("codeSymbols", codeSymbols, "codeConsonants", codeConsonants, "cipheredText", cipheredText);
+    }        
+    document.getElementById('outputCode').innerHTML =
+    `<p> De acordo com a Tabela ASCII a quantidade de caracteres trasnformados para carateres : </p>
+    <p> - especiais por "+1" posição foi de ${ codeSymbols}; </p>
+    <p> - vogais por "-2" posição foi de ${ codeVowals}; </p>
+    <p> - consoantes por "-6" posição foi de ${ codeConsonants}; </p>`
+    console.log(document.getElementById('output').innerHTML);
+    document.getElementById('output').innerHTML = `<p> ${cipheredText} </p>`;
+    console.log(document.getElementById('output').innerHTML);
+}
 
 /* 
 readTextFile("file:///C:/textToTransform.txt");
@@ -88,5 +172,3 @@ document.querySelector('#cipher').onclick = function(){
         }
     }
 }
-
-/* */

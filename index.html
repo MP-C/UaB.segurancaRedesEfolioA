@@ -25,19 +25,37 @@
 </head>
 
 <body>
-    <h1>EFólio A - Segurança em Redes e Computadores </h1>
-    <h2>Cryptografia Simétrica</h2>
-    <h2>Cryptografia Assimétrica</h2>
+    <h1 id="information">EFólio A - Segurança em Redes e Computadores </h1>
+    <h2 id="information">Cryptografia Simétrica</h2>
+    <h2 id="information">Cryptografia Assimétrica</h2>
     <script>
         console.log("Index HTML com Script");
     </script>
-    <div class="container">
-        <div id="newtask">
-            <input type="text" placeholder="texto em claro">
-            <button id="cipher1">Cryptografia Assimétrica</button>
-            <button id="cipher">Aplicar Cifra Texto</button>
+    <div class="container" >
+        <div id="symetric">
+            <input type="text" id= "textToCipherSync" placeholder="Texto em claro ou Texto Cifrado para Criptografia Simétrica">
+            <div id="position-buttons">
+                <button id="decipherSym" onclick="decrytTextSync()">Apply symmetric decipher </button>
+                <button id="cipherSym" onclick="crytTextSync()">Apply symmetric cipher</button>
+            </div>
         </div>
-        <div id="tasks"></div>
+        <div id="assymetric">
+            <input type="text" id="textToCipherAssync" placeholder="Texto em claro ou Texto Cifrado para Criptografia Assimétrica">
+            <div id="position-buttons">
+                <button id="decipherAsym" onclick="">Apply asymmetric decipher </button>
+                <button id="cipherAsym" onclick="">Apply asymmetric cipher</button>
+            </div>
+        </div>
+    </div>
+    <div class="results">
+        <div id="outputCode">
+            <!--<p> The applying cipher will automatically appear here</p>-->
+            <p> A chave usada aparecerá aqui. </p>
+        </div> 
+        <div id="output">
+            <!--<p> Your coded text will appear in this zone.</p>-->
+            <p> O texto encriptado aparecerá aqui.</p>
+        </div>
     </div>
 </body>
 
