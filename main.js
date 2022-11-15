@@ -15,7 +15,7 @@ console.log("Check oppening file: main.js");
 /* Função responsavel por assegurar uma transformação simétrica da mensagem inicial de forma a eccriptar uma mensagem recorrendo a um algoritmo que codifica a mensagem*/
 function crytTextSync(){
     let plainText = document.querySelector('#textToCipherSync').value.replace(/(\t|\f|\n|\r|\v)/gm, "");
-    let cipheredText;
+    let cipheredText="";
     let codeSymbols = 0;
     let codeVowals = 0;
     let codeConsonants = 0;
@@ -49,10 +49,11 @@ function crytTextSync(){
         // console.log("2code65", code65, "2code97", code97, "cipheredText", cipheredText);
     }        
     document.getElementById('outputCode').innerHTML =
-    `<p> De acordo com a Tabela ASCII a quantidade de caracteres trasnformados para carateres : </p>
-    <p> especiais por "-1" posição foi de ${ codeSymbols} </p>
-    <p> voagais por "+2" posição foi de ${ codeVowals} </p>
-    <p> consoantespor "+6" posição foi de ${ codeConsonants} </p>`
+    `<p> De acordo com a cifra de Cesar, ocoreu um descolamento de posições
+    para os caracteres transformados numa mudança de : </p>
+    <p> - de "+2" posição, para vogais num total de  ${ codeVowals} carateres; </p>
+    <p> - de "+6" posição, para consoantes num total de  ${ codeConsonants} carateres; </p>
+    <p> - de "-1" posição, para caracteres especiais num total de ${ codeSymbols} carateres; </p>`
     console.log(document.getElementById('output').innerHTML);
     document.getElementById('output').innerHTML = `<p> ${cipheredText} </p>`;
     console.log(document.getElementById('output').innerHTML);
@@ -61,7 +62,7 @@ function crytTextSync(){
 /* Função responsavel por assegurar uma transformação simétrica da mensagem inicial de forma a descriptar a mensagem recorrendo ao algoritmo inverso,*/
 function decrytTextSync(){
     let plainText = document.querySelector('#textToCipherSync').value.replace(/(\t|\f|\n|\r|\v)/gm, "");
-    let cipheredText;
+    let cipheredText="";
     let codeSymbols = 0;
     let codeVowals = 0;
     let codeConsonants = 0;
@@ -95,10 +96,11 @@ function decrytTextSync(){
         // console.log("codeSymbols", codeSymbols, "codeConsonants", codeConsonants, "cipheredText", cipheredText);
     }        
     document.getElementById('outputCode').innerHTML =
-    `<p> De acordo com a Tabela ASCII a quantidade de caracteres trasnformados para carateres : </p>
-    <p> - especiais por "+1" posição foi de ${ codeSymbols}; </p>
+    `<p> De acordo com a a cifra de Cesar, ocorreu um deslocamento de posições
+    para os caracteres trasnformados : </p>
     <p> - vogais por "-2" posição foi de ${ codeVowals}; </p>
-    <p> - consoantes por "-6" posição foi de ${ codeConsonants}; </p>`
+    <p> - consoantes por "-6" posição foi de ${ codeConsonants}; </p>
+    <p> - especiais por "+1" posição foi de ${ codeSymbols}; </p>`
     console.log(document.getElementById('output').innerHTML);
     document.getElementById('output').innerHTML = `<p> ${cipheredText} </p>`;
     console.log(document.getElementById('output').innerHTML);
