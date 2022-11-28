@@ -22,12 +22,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="main.css" rel="stylesheet" type="text/css">
     <script src="main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/big-integer/1.6.51/BigInteger.min.js" integrity="sha512-gHNUM5lAKXJFwUX0qjNGL5tJSoa8TTz2xUTw5COytE/p3MHy2Mivey3Gb76Blf6JfvNglTskVo5YsxDix6XIcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
+
 <body>
-    <h1 id="information">EFólio A - Segurança em Redes e Computadores </h1>
-    <h2 id="information">Cryptografia Simétrica</h2>
-    <h2 id="information">Cryptografia Assimétrica</h2>
+    <div class="id">
+        <h1 id="information">Segurança em Redes e Computadores - EFólio A - 2022/ 2023</h1>
+        <h3 id="information">Mário Carvalho - Número Aluno: 2000563</h3>
+        <br>
+        <h2 id="information">Cryptografia Simétrica - César com multitransposição </h2>
+        <h2 id="information">Cryptografia Assimétrica - RSA </h2>
+    </div>
     <script>
         console.log("Index HTML com Script");
     </script>
@@ -35,15 +41,18 @@
         <div id="symetric">
             <input type="text" id= "textToCipherSync" placeholder="Texto em claro ou Texto Cifrado para Criptografia Simétrica">
             <div id="position-buttons">
-                <button id="decipherSym" onclick="decrytTextSync()">Apply symmetric decipher </button>
-                <button id="cipherSym" onclick="crytTextSync()">Apply symmetric cipher</button>
+                <button id="decipherSym" onclick="decryptTextSymm()">Descriptar modo Simétrico </button>
+                <button id="cipherSym" onclick="cryptTextSymm()">Encriptar modo Simétrico</button>
             </div>
+        </div>
+        <div>
+            <br>
         </div>
         <div id="assymetric">
             <input type="text" id="textToCipherAssync" placeholder="Texto em claro ou Texto Cifrado para Criptografia Assimétrica">
             <div id="position-buttons">
-                <button id="decipherAsym" onclick="">Apply asymmetric decipher </button>
-                <button id="cipherAsym" onclick="">Apply asymmetric cipher</button>
+                <button id="decipherAsym" onclick="decryptTextAssym()">Descriptar modo Assimétrico</button>
+                <button id="cipherAsym" onclick="cryptTextAssym()">Encriptar modo Assimétrico</button>
             </div>
         </div>
     </div>
